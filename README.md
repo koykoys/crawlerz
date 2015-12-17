@@ -9,6 +9,7 @@
 7. After scraping information, the data will be automatically stored on MongoDB using the pipeline class of scrapy.
 
 ## RUNNING THE CRAWLER W/ PARAMETERS
+
 * python file = "OKru_Crawler.py"
 * crawler name = "spidey"
 * username variable = "uname"
@@ -18,7 +19,6 @@
 1. Open Terminal
 2. Navigate to "spiders" directory using "cd" command
 3. To pass the username, password and search phrase parameters, after the comand "scrapy crawl spidey", we will need to add the syntax "-a" following the prameter name and its value.
-
 2. This will be the format of the whole command line:
 	
 	scrapy crawl spidey -a uname=your_username -a passwrd=your_password -a keyphrase=keyword_for_searching
