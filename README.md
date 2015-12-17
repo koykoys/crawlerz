@@ -1,31 +1,24 @@
-## Synopsis
+## SCRAPING PROCESS
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+1. The crawler will require user to input username, password and search phrase that will be used on searching profiles on m.ok.ru
+2. Login will be initiated using POST method on the website.
+3. After a successful login, crawler will automatically use the search phrase that has been supplied by the user.
+4. Search process will be executed using GET method on the website.
+5. On the results page, only the first 2 profiles will be scraped(as per request of Oren) and basic information will be parsed.
+6. The 5 basic information that will be parsed will be profile name, age, birhtday, city and country.
+7. After scraping information, the data will be automatically stored on MongoDB using the pipeline class of scrapy.
 
-## Code Example
+## RUNNING THE CRAWLER W/ PARAMETERS
+* python file = "OKru_Crawler.py"
+* crawler name = "spidey"
+* username variable = "uname"
+* password variable = "passwrd"
+* search phrase variable = "keyphrase"
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+1. Open Terminal
+2. Navigate to "spiders" directory using "cd" command
+3. To pass the username, password and search phrase parameters, after the comand "scrapy crawl spidey", we will need to add the syntax "-a" following the prameter name and its value.
 
-## Motivation
-
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
-
-## Installation
-
-Provide code examples and explanations of how to get the project.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+2. This will be the format of the whole command line:
+	
+	scrapy crawl spidey -a uname=your_username -a passwrd=your_password -a keyphrase=keyword_for_searching
